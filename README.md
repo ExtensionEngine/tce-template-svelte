@@ -21,10 +21,10 @@ for the purposes of your specific custom content element.
 
 #### `package.json`
 
-Change `name` and `description `properties to reflect your custom element.
+Change `name` and `description` properties to reflect your custom element.
 Also, take a look at `main`, `module` and `export` properties. These define the
 output files of the build process, so change the name of those files accordingly.
-These names also have to defined in `vite.config.ts` file as well.
+They also have to be defined in `vite.config.ts` file as well.
 
 #### `vite.config.ts`
 
@@ -33,10 +33,11 @@ the name of the output files from the building process.
 
 #### `content-element` folder
 
-Add code for the edit state of your element to `edit/index.svelte` file. In the same
-manner add code for the display state to `display/index.svelte` file. You can choose
-any kind of component composition, however only one root `Edit` and `Display` component
-can be exposed as a part of the element's interface.
+Add code for the edit state of your element to `edit/index.svelte` file. If the element
+supports them, you can also add code for top toolbar and side toolbar in the designated
+files. In the same manner add code for the display state to `display/index.svelte` file. 
+You can choose any kind of component composition, however only root `Edit` and `Display`
+components can be exposed as a part of the element's interface.
 Make sure to edit the relevant properties in `index.ts` file.
 
 #### `preview` folder
