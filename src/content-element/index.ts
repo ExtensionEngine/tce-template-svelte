@@ -1,12 +1,12 @@
-import type { SvelteComponent } from 'svelte';
+import type { EditState, DisplayState, CustomElementConfig } from './typings';
 import Display from './display/index.svelte';
 import Edit from './edit/index.svelte';
 import TopToolbar from './edit/TopToolbar.svelte';
 import SideToolbar from './edit/SideToolbar.svelte';
 
 /**
- * A method used to create the initial state of the element by declaring the
- * defaults for the elements props. Does not need to be defined.
+ * Methods used to create the initial states of the element by declaring the
+ * defaults for the elements props. Do not need to be defined.
  */
 const initState: () => EditState = () => ({});
 const initDisplayState: () => DisplayState = () => ({});
@@ -19,29 +19,6 @@ const initDisplayState: () => DisplayState = () => ({});
  * ui->forceFullWidth: a boolean value which defines if the element can only be
  * added as full width element
  */
-interface EditState {
-
-}
-
-interface DisplayState {
-
-}
-
-interface CustomElementConfig {
-  type: string;
-  version: string;
-  name: string;
-  initState: () => EditState;
-  Edit: typeof SvelteComponent;
-  TopToolbar: typeof SvelteComponent;
-  SideToolbar: typeof SvelteComponent;
-  initDisplayState: () => DisplayState;
-  Display: typeof SvelteComponent;
-  ui: {
-    icon: string;
-    forceFullWidth: boolean;
-  }
-}
 
 const config: CustomElementConfig = {
   type: 'CUSTOM_ELEMENT', // a unique string used by Tailor to identify this element

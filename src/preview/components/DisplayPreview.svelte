@@ -14,8 +14,7 @@
 
   function onUpdate(data: CustomEvent<CommonProps>) {
     dispatch('update-common', data);
-  }
-
+  };
 </script>
 
 <Cell span={6}>

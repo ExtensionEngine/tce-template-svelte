@@ -9,12 +9,11 @@
   let topAppBar: TopAppBarComponentDev;
 
   // Props shared between edit and display components
-  let commonProps: CommonProps = {
-  };
+  let commonProps: CommonProps = {};
 
   function updateCommonProps(data: CustomEvent<CommonProps>) {
     commonProps = data.detail;
-  }
+  };
 </script>
 
 <main>
