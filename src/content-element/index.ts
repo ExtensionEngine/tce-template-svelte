@@ -1,4 +1,4 @@
-import type { EditState, DisplayState, CustomElementConfig } from './typings';
+import type { EditState, CustomElementConfig } from './typings';
 import Display from './display/index.svelte';
 import Edit from './edit/index.svelte';
 import TopToolbar from './edit/TopToolbar.svelte';
@@ -9,7 +9,6 @@ import SideToolbar from './edit/SideToolbar.svelte';
  * defaults for the elements props. Do not need to be defined.
  */
 const initState: () => EditState = () => ({});
-const initDisplayState: () => DisplayState = () => ({});
 
 /**
  * The fields that need to be customized are:
@@ -28,7 +27,6 @@ const config: CustomElementConfig = {
   Edit,
   TopToolbar,
   SideToolbar,
-  initDisplayState,
   Display,
   ui: {
     icon: 'mdi-help-circle',
