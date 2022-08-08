@@ -1,8 +1,10 @@
-import type { EditState, CustomElementConfig } from './typings';
+'use strict';
+
+import type { CustomElementConfig, EditState } from './typings';
 import Display from './display/index.svelte';
 import Edit from './edit/index.svelte';
-import TopToolbar from './edit/TopToolbar.svelte';
 import SideToolbar from './edit/SideToolbar.svelte';
+import TopToolbar from './edit/TopToolbar.svelte';
 
 /**
  * Methods used to create the initial states of the element by declaring the
@@ -32,6 +34,6 @@ const config: CustomElementConfig = {
     icon: 'mdi-help-circle',
     forceFullWidth: true
   }
-}
+};
 
 export default config;

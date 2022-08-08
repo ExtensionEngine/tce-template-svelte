@@ -1,3 +1,3 @@
-export interface CommonProps {
-  
-}
+'use strict';
+
+export interface CommonProps {}

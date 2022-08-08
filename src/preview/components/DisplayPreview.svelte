@@ -1,8 +1,8 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
   import { Cell } from '@smui/layout-grid';
-  import Display from '../../content-element/display/index.svelte';
   import type { CommonProps } from '../typings';
+  import Display from '../../content-element/display/index.svelte';
 
   const dispatch = createEventDispatcher();
 
@@ -14,7 +14,7 @@
 
   function onUpdate(data: CustomEvent<CommonProps>) {
     dispatch('update-common', data);
-  };
+  }
 </script>
 
 <Cell span={6}>

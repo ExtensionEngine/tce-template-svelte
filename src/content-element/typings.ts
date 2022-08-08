@@ -1,3 +1,5 @@
+'use strict';
+
 import type { SvelteComponent } from 'svelte';
 
 export interface EditState {

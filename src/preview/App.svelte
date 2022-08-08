@@ -1,11 +1,13 @@
 <script lang="ts">
+  'use strict';
+  
+  import TopAppBar, { AutoAdjust, Row, Section, Title } from '@smui/top-app-bar';
   import LayoutGrid from '@smui/layout-grid';
   import type { TopAppBarComponentDev } from '@smui/top-app-bar';
-  import TopAppBar, { Row, Section, Title, AutoAdjust } from '@smui/top-app-bar';
-  import EditPreview from './components/EditPreview.svelte';
-  import DisplayPreview from './components/DisplayPreview.svelte';
   import type { CommonProps } from './typings';
-
+  import DisplayPreview from './components/DisplayPreview.svelte';
+  import EditPreview from './components/EditPreview.svelte';
+  
   let topAppBar: TopAppBarComponentDev;
 
   // Props shared between edit and display components
@@ -13,7 +15,7 @@
 
   function updateCommonProps(data: CustomEvent<CommonProps>) {
     commonProps = data.detail;
-  };
+  }
 </script>
 
 <main>

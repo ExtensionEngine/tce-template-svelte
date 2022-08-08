@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
   import { Cell, InnerGrid } from '@smui/layout-grid';
-  import Edit from '../../content-element/edit/index.svelte';
-  import TopToolbar from '../../content-element/edit/TopToolbar.svelte';
-  import SideToolbar from '../../content-element/edit/SideToolbar.svelte';
+  import { createEventDispatcher } from 'svelte';
   import type { CommonProps } from '../typings';
+  import Edit from '../../content-element/edit/index.svelte';
+  import SideToolbar from '../../content-element/edit/SideToolbar.svelte';
+  import TopToolbar from '../../content-element/edit/TopToolbar.svelte';
 
   const dispatch = createEventDispatcher();
 
@@ -16,7 +16,7 @@
 
   function onUpdate(data: CustomEvent<CommonProps>) {
     dispatch('update-common', data.detail);
-  };
+  }
 </script>
 
 <Cell span={6}>
