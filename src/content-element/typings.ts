@@ -2,15 +2,17 @@
 
 import type { SvelteComponent } from 'svelte';
 
-export interface EditState {
+export interface ElementData {
 
 }
 
-export interface CustomElementConfig {
+export type DataInitializer = () => ElementData;
+
+export interface ElementManifest {
   type: string;
   version: string;
   name: string;
-  initState: () => EditState;
+  initState: DataInitializer;
   Edit: typeof SvelteComponent;
   TopToolbar: typeof SvelteComponent;
   SideToolbar: typeof SvelteComponent;

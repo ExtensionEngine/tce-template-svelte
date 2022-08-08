@@ -2,5 +2,5 @@
 </script>
 
 <div>
-  <h3>Edit element top toolbar</h3>
+  <p>Edit element top toolbar</p>
 </div>
