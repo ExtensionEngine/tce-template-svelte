@@ -1,5 +1,3 @@
-'use strict';
-
 import sveltePreprocess from 'svelte-preprocess';
 
 export default {

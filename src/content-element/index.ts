@@ -1,5 +1,3 @@
-'use strict';
-
 import type { DataInitializer, ElementManifest } from './typings';
 import Display from './display/index.svelte';
 import Edit from './edit/index.svelte';
@@ -7,8 +5,8 @@ import SideToolbar from './edit/SideToolbar.svelte';
 import TopToolbar from './edit/TopToolbar.svelte';
 
 /**
- * Methods used to create the initial states of the element by declaring the
- * defaults for the elements props. Do not need to be defined.
+ * Method used to create the initial state of the data by declaring the
+ * defaults for the elements props. Does not need to be defined.
  */
 const initState: DataInitializer = () => ({});
 

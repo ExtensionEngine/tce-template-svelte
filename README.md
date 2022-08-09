@@ -27,7 +27,12 @@ Change `name` and `description` properties to reflect your custom element.
 ##### Folder structure
 <ul>
   <li>index.ts - contains custom element manifest</li>
-  <li>display/index.ts - main file for the display version on the content element</li>
+  <li>typings.ts - contains TypeScript type definitions</li>
+  <li>display subfolder
+    <ul>
+      <li>index.ts - main file for the display version on the content element</li>
+    </ul>
+  </li>
   <li>edit subfolder
     <ul>
       <li>index.ts - main file for the edit version of the content element</li>
@@ -39,10 +44,14 @@ Change `name` and `description` properties to reflect your custom element.
 
 Add code for the edit component of your element to `edit/index.svelte` file. If the element
 supports them, you can also add code for top toolbar and side toolbar in the designated
-files. In the same manner add code for the display state to `display/index.svelte` file. 
+files. In the same manner add code for the display component to `display/index.svelte` file. 
 You can choose any kind of component composition, however only root `Edit` and `Display`
-components can be exposed as a part of the element's interface.
-Make sure to edit the relevant properties in `index.ts` file.
+components can be exposed as a part of the element's interface. TypeScript types can be
+added to support better developer experience and serve as a documentation for the element.
+Use the `ElementData` interface in `typings.ts` file to specify and list the data that 
+your element requires and manages. The `initState` function can optionally be specified 
+to return the initial state of that data.
+Make sure to edit the relevant properties of the manifest in `index.ts` file.
 
 #### `preview` folder
 

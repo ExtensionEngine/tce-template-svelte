@@ -1,7 +1,7 @@
 {
   "name": "tailor-content-element",
   "private": true,
-  "description": "Custom content element starter template",
+  "description": "Content element starter template",
   "author": "ExtensionEngine <info@extensionengine.com>",
   "version": "0.0.0",
   "type": "module",
@@ -26,8 +26,6 @@
     "lint": "npm run lint:js && npm run lint:css"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.18.9",
-    "@babel/eslint-plugin": "^7.18.10",
     "@extensionengine/eslint-config": "^3.0.1",
     "@extensionengine/stylelint-config": "^1.1.1",
     "@smui/layout-grid": "^6.0.0",
@@ -40,9 +38,7 @@
     "eslint-config-semistandard": "^17.0.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-require-sort": "^1.2.2",
     "eslint-plugin-svelte3": "^4.0.0",
     "stylelint": "^13.13.1",
     "svelte": "^3.49.0",

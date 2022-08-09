@@ -1,6 +1,4 @@
 <script lang="ts">
-  'use strict';
-  
   import TopAppBar, { AutoAdjust, Row, Section, Title } from '@smui/top-app-bar';
   import LayoutGrid, { Cell } from '@smui/layout-grid';
   import type { TopAppBarComponentDev } from '@smui/top-app-bar';
@@ -41,7 +39,7 @@
         />
       </Cell>
       <Cell span={6}>
-        <DisplayPreview {elementData} on:save={saveElementData} />
+        <DisplayPreview {elementData} />
       </Cell>
     </LayoutGrid>
   </AutoAdjust>

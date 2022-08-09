@@ -1,13 +1,14 @@
-'use strict';
-
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
+  parserOptions: {
+    sourceType: 'module'
+  },
+  extends: '@extensionengine/eslint-config/base',
   plugins: [
     'svelte3',
     '@typescript-eslint'
   ],
-  extends: '@extensionengine/eslint-config/base',
   overrides: [
     {
       files: ['*.svelte'],
