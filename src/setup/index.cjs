@@ -15,12 +15,12 @@ const prompt = new Snippet({
   "name": "\${name}",
   "description": "\${description}",
   "version": "\${version}",
-  "author": "\${author_name} (https://github.com/\${username})",
+  "author": "\${author_name} (https://github.com/\${username})"
 }
 `
 });
 
-async function executePrompt() {
+async function executeSetup() {
   const pkgJson = await PackageJson.load('./');
   try {
     const answer = await prompt.run();
@@ -33,4 +33,4 @@ async function executePrompt() {
   }
 }
 
-executePrompt();
+executeSetup();
