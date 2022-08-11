@@ -12,15 +12,22 @@ for [Tailor](https://github.com/ExtensionEngine/tailor).
 It is intended to get you up and running quickly by bootstraping the application
 structure and setting base default properties.
 
+## Requirements
+
+- Node & npm
+- [degit](https://github.com/Rich-Harris/degit)
+
 ## Setup
 
 The project is already preconfigured with certain defaults,
 however it is necessary to go through some properties and modify the values
 for the purposes of your specific custom content element.
 
-#### `package.json`
+#### Instructions
 
-Change `name` and `description` properties to reflect your custom element.
+1. Clone the repo using `degit`
+2. Install dependencies `npm install`
+3. Setup project by running `npm run setup`
 
 #### `content-element` folder
 
