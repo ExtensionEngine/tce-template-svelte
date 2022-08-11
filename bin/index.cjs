@@ -1,4 +1,5 @@
 #! /usr/bin/env node
+const { execFileSync } = require('child_process');
 const shell = require('shelljs');
 
 const SUCCESS_CODE = 0;
@@ -22,7 +23,7 @@ if (!shell.which('node') || !shell.which('npm')) {
 }
 
 shell.echo('Cloning respository');
-if (shell.exec('degit https://github.com/ExtensionEngine/tailor').code !== SUCCESS_CODE) {
+if (shell.exec('degit https://github.com/ExtensionEngine/tailor-content-element').code !== SUCCESS_CODE) {
   exitOnError('Cloning respository via degit failed');
 }
 
@@ -32,6 +33,8 @@ if (shell.exec('npm install').code !== SUCCESS_CODE) {
 }
 
 shell.echo('Setting up project');
-if (shell.exec('npm run setup').code !== SUCCESS_CODE) {
+try {
+  execFileSync('npm', ['run', 'setup'], { stdio: 'inherit' });
+} catch {
   exitOnError('Project setup failed');
 }
