@@ -25,7 +25,7 @@ for the purposes of your specific custom content element.
 
 #### Instructions
 
-1. Clone the repo using `degit`
+1. Clone the repo by executing `degit https://github.com/ExtensionEngine/tailor-content-element`
 2. Install dependencies `npm install`
 3. Setup project by running `npm run setup`
 

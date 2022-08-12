@@ -5,17 +5,11 @@ const prompt = new Snippet({
   name: 'package.json',
   message: 'Fill out the fields in package.json',
   required: true,
-  fields: [
-    {
-      name: 'author_name',
-      message: 'Author Name'
-    }
-  ],
   template: `{
   "name": "\${name}",
   "description": "\${description}",
-  "version": "\${version}",
-  "author": "\${author_name} (https://github.com/\${username})"
+  "version": "\${version:0.0.1}",
+  "author": "\${author_name} <\${author_email}> (https://github.com/\${username})"
 }
 `
 });
