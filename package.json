@@ -21,6 +21,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
+    "setup": "node src/setup/index.cjs",
     "lint:js": "eslint --ext .js,.ts,.svelte .",
     "lint:css": "stylelint \"src/**/*.svelte\" \"src/**/*.scss\" \"src/**/*.css\"",
     "lint": "npm run lint:js && npm run lint:css"
@@ -28,12 +29,14 @@
   "devDependencies": {
     "@extensionengine/eslint-config": "^3.0.1",
     "@extensionengine/stylelint-config": "^1.1.1",
+    "@npmcli/package-json": "^2.0.0",
     "@smui/layout-grid": "^6.0.0",
     "@smui/top-app-bar": "^6.0.0",
     "@sveltejs/vite-plugin-svelte": "^1.0.1",
     "@tsconfig/svelte": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^5.32.0",
     "@typescript-eslint/parser": "^5.32.0",
+    "enquirer": "^2.3.6",
     "eslint": "^8.21.0",
     "eslint-config-semistandard": "^17.0.0",
     "eslint-config-standard": "^17.0.0",
