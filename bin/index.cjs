@@ -12,12 +12,13 @@ function exitOnError(errorMessage) {
 }
 
 function prettifyStepTitle(title) {
-  return chalk.bgGreen.bold(title);
+  return chalk.bgBlue.bold(title);
 }
 
 function prettifyErrorMessage(errorMessage) {
   return chalk.bgRed.bold(errorMessage);
 }
+
 
 if (!shell.which('git')) {
   exitOnError('Sorry, this script requires git');
@@ -31,17 +32,17 @@ if (!shell.which('node') || !shell.which('npm')) {
   exitOnError('Sorry, this script requires node & npm');
 }
 
-shell.echo(prettifyStepTitle('1. Cloning respository'));
+shell.echo(prettifyStepTitle('1/3 Cloning respository'));
 if (shell.exec('degit https://github.com/ExtensionEngine/tailor-content-element').code !== SUCCESS_CODE) {
   exitOnError('Cloning respository via degit failed');
 }
 
-shell.echo(prettifyStepTitle('2. Installing dependencies'));
+shell.echo(prettifyStepTitle('2/3 Installing dependencies'));
 if (shell.exec('npm install').code !== SUCCESS_CODE) {
   exitOnError('Installing dependencies via npm failed');
 }
 
-shell.echo(prettifyStepTitle('3. Setting up project'));
+shell.echo(prettifyStepTitle('3/3 Setting up project'));
 try {
   execFileSync('npm', ['run', 'setup'], { stdio: 'inherit' });
 } catch {
