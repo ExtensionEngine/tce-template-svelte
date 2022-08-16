@@ -1,5 +1,5 @@
 {
-  "name": "tailor-content-element",
+  "name": "@tailor-cms/tce-svelte",
   "private": true,
   "description": "Content element starter template",
   "author": "ExtensionEngine <info@extensionengine.com>",
@@ -27,7 +27,7 @@
     "lint": "npm run lint:js && npm run lint:css"
   },
   "bin": {
-    "tailor-content-element": "bin/index.cjs"
+    "@tailor-cms/tce-svelte": "bin/index.cjs"
   },
   "devDependencies": {
     "@extensionengine/eslint-config": "^3.0.1",

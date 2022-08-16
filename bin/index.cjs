@@ -12,20 +12,15 @@ function exitOnError(errorMessage) {
 }
 
 function prettifyStepTitle(title) {
-  return chalk.bgBlue.bold(title);
+  return chalk.blue.bold(title);
 }
 
 function prettifyErrorMessage(errorMessage) {
   return chalk.bgRed.bold(errorMessage);
 }
 
-
 if (!shell.which('git')) {
   exitOnError('Sorry, this script requires git');
-}
-
-if (!shell.which('degit')) {
-  exitOnError('Sorry, this script requires degit');
 }
 
 if (!shell.which('node') || !shell.which('npm')) {
@@ -33,8 +28,16 @@ if (!shell.which('node') || !shell.which('npm')) {
 }
 
 shell.echo(prettifyStepTitle('1/3 Cloning respository'));
-if (shell.exec('degit https://github.com/ExtensionEngine/tailor-content-element').code !== SUCCESS_CODE) {
-  exitOnError('Cloning respository via degit failed');
+let cloneCommand = '';
+if (!shell.which('degit')) {
+  cloneCommand = shell.exec('git clone --depth 1 https://github.com/ExtensionEngine/tailor-content-element');
+  shell.cd('./tailor-content-element');
+  shell.exec('rm -rf .git');
+} else {
+  cloneCommand = shell.exec('degit https://github.com/ExtensionEngine/tailor-content-element');
+}
+if (cloneCommand.code !== SUCCESS_CODE) {
+  exitOnError('Cloning respository failed');
 }
 
 shell.echo(prettifyStepTitle('2/3 Installing dependencies'));
