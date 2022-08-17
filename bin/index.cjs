@@ -28,14 +28,9 @@ if (!shell.which('node') || !shell.which('npm')) {
 }
 
 shell.echo(prettifyStepTitle('1/3 Cloning respository'));
-let cloneCommand = '';
-if (!shell.which('degit')) {
-  cloneCommand = shell.exec('git clone --depth 1 https://github.com/ExtensionEngine/tailor-content-element');
-  shell.cd('./tailor-content-element');
-  shell.exec('rm -rf .git');
-} else {
-  cloneCommand = shell.exec('degit https://github.com/ExtensionEngine/tailor-content-element');
-}
+const cloneCommand = shell.exec('git clone --depth 1 https://github.com/ExtensionEngine/tailor-content-element');
+shell.cd('./tailor-content-element');
+shell.exec('rm -rf .git');
 if (cloneCommand.code !== SUCCESS_CODE) {
   exitOnError('Cloning respository failed');
 }
