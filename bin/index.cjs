@@ -4,6 +4,7 @@ const { execFileSync } = require('child_process');
 const PackageJson = require('@npmcli/package-json');
 const readline = require('readline');
 const shell = require('shelljs');
+const validate = require('validate-npm-package-name');
 
 const SUCCESS_CODE = 0;
 const ERROR_CODE = 1;
@@ -43,7 +44,8 @@ async function validateEnvironment() {
 
 async function cloneRepository() {
   shell.echo(prettifyStepTitle('1/3 Cloning respository'));
-  const name = await prompt('Enter the name of the project to create: ');
+
+  const name = await getPackageName();
 
   const cloneCommand = shell.exec(`git clone --depth 1 https://github.com/ExtensionEngine/tce-template-svelte ${name}`);
   shell.cd(`./${name}`);
@@ -56,6 +58,23 @@ async function cloneRepository() {
   if (cloneCommand.code !== SUCCESS_CODE) {
     exitOnError('Cloning respository failed');
   }
+}
+
+async function getPackageName() {
+  let name = '';
+  let isNameValid = true;
+
+  shell.echo(chalk.gray('The provided name must be a valid NPM package name.'));
+  do {
+    name = await prompt('Enter the name of the project to create: ');
+    isNameValid = validate(name).validForNewPackages;
+
+    if (!isNameValid) {
+      shell.echo(prettifyErrorMessage('The entered name is invalid'));
+    }
+  } while (!isNameValid);
+
+  return name;
 }
 
 async function installDependencies() {
