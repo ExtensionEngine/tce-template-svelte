@@ -8,6 +8,13 @@ const shell = require('shelljs');
 const SUCCESS_CODE = 0;
 const ERROR_CODE = 1;
 
+const SCRIPT_STEPS = [
+  validateEnvironment,
+  cloneRepository,
+  installDependencies,
+  runSetup
+];
+
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 const prompt = query => new Promise(resolve => rl.question(query, resolve));
 
@@ -22,6 +29,16 @@ function prettifyStepTitle(title) {
 
 function prettifyErrorMessage(errorMessage) {
   return chalk.bgRed.bold(errorMessage);
+}
+
+async function validateEnvironment() {
+  if (!shell.which('git')) {
+    exitOnError('Sorry, this script requires git');
+  }
+
+  if (!shell.which('node') || !shell.which('npm')) {
+    exitOnError('Sorry, this script requires node & npm');
+  }
 }
 
 async function cloneRepository() {
@@ -58,17 +75,9 @@ async function runSetup() {
 }
 
 async function executeScript() {
-  if (!shell.which('git')) {
-    exitOnError('Sorry, this script requires git');
+  for (const step of SCRIPT_STEPS) {
+    await step();
   }
-
-  if (!shell.which('node') || !shell.which('npm')) {
-    exitOnError('Sorry, this script requires node & npm');
-  }
-
-  await cloneRepository();
-  await installDependencies();
-  await runSetup();
 
   shell.exit(SUCCESS_CODE);
 }
