@@ -20,7 +20,6 @@
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "setup": "node src/setup/index.cjs",
     "lint:js": "eslint --ext .js,.ts,.svelte .",
     "lint:css": "stylelint \"src/**/*.svelte\" \"src/**/*.scss\" \"src/**/*.css\"",
     "lint": "npm run lint:js && npm run lint:css"
