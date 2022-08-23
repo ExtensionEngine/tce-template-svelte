@@ -98,14 +98,14 @@ async function getPackageName() {
 }
 
 async function installDependencies() {
-  shell.echo(prettifyStepTitle('2/4 Installing dependencies'));
+  shell.echo(prettifyStepTitle('\n2/4 Installing dependencies'));
   if (shell.exec('npm install').code !== SUCCESS_CODE) {
     exitOnError('Installing dependencies via npm failed');
   }
 }
 
 async function runSetup() {
-  shell.echo(prettifyStepTitle('3/4 Setting up project'));
+  shell.echo(prettifyStepTitle('\n3/4 Setting up project'));
   try {
     const answer = await setupSnippet.run();
     shell.echo(answer.result);
@@ -116,7 +116,7 @@ async function runSetup() {
 }
 
 async function cleanup() {
-  shell.echo(prettifyStepTitle('4/4 Cleanup'));
+  shell.echo(prettifyStepTitle('\n4/4 Cleanup'));
   await updatePackageJson({
     dependencies: {}
   });
@@ -128,12 +128,19 @@ async function cleanup() {
   }
 }
 
+function displayInstructions() {
+  shell.echo(chalk.green('Done!\n'));
+  shell.echo('Your next steps are:');
+  shell.echo(chalk.blue(`📂 cd ${projectName}`));
+  shell.echo(`🚀 Start development server with ${chalk.blue('npm run dev')}`);
+}
+
 async function executeScript() {
   for (const step of SCRIPT_STEPS) {
     await step();
   }
 
-  shell.echo(chalk.green('Done!'));
+  displayInstructions();
   shell.exit(SUCCESS_CODE);
 }
 
