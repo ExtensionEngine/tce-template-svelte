@@ -1,4 +1,4 @@
-# tailor-content-element
+# tce-template-svelte
 
 Template project to quickly get started developing custom content elements.
 
@@ -15,7 +15,6 @@ structure and setting base default properties.
 ## Requirements
 
 - Node & npm
-- [degit](https://github.com/Rich-Harris/degit)
 
 ## Setup
 
@@ -25,9 +24,7 @@ for the purposes of your specific custom content element.
 
 #### Instructions
 
-1. Clone the repo by executing `degit https://github.com/ExtensionEngine/tailor-content-element`
-2. Install dependencies `npm install`
-3. Setup project by running `npm run setup`
+1. Run `npx @tailor-cms/tce-svelte` and follow the instructions to setup the project
 
 #### `content-element` folder
 
