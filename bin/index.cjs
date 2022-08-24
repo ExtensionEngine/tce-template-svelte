@@ -14,7 +14,8 @@ const SCRIPT_STEPS = [
   cloneRepository,
   installDependencies,
   runSetup,
-  cleanup
+  cleanup,
+  displayInstructions
 ];
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
@@ -47,10 +48,10 @@ function prettifyErrorMessage(errorMessage) {
   return chalk.bgRed.bold(errorMessage);
 }
 
-async function updatePackageJson(updates) {
+async function updatePackageJson(data) {
   try {
     const pkgJson = await PackageJson.load('./');
-    pkgJson.update(updates);
+    pkgJson.update(data);
     await pkgJson.save();
   } catch {
     exitOnError('Error updating package.json');
@@ -140,7 +141,6 @@ async function executeScript() {
     await step();
   }
 
-  displayInstructions();
   shell.exit(SUCCESS_CODE);
 }
 
