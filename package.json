@@ -1,6 +1,5 @@
 {
-  "name": "tailor-content-element",
-  "private": true,
+  "name": "@tailor-cms/tce-svelte",
   "description": "Content element starter template",
   "author": "ExtensionEngine <info@extensionengine.com>",
   "version": "0.0.0",
@@ -21,22 +20,22 @@
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "setup": "node src/setup/index.cjs",
     "lint:js": "eslint --ext .js,.ts,.svelte .",
     "lint:css": "stylelint \"src/**/*.svelte\" \"src/**/*.scss\" \"src/**/*.css\"",
     "lint": "npm run lint:js && npm run lint:css"
   },
+  "bin": {
+    "@tailor-cms/tce-svelte": "bin/index.cjs"
+  },
   "devDependencies": {
     "@extensionengine/eslint-config": "^3.0.1",
     "@extensionengine/stylelint-config": "^1.1.1",
-    "@npmcli/package-json": "^2.0.0",
     "@smui/layout-grid": "^6.0.0",
     "@smui/top-app-bar": "^6.0.0",
     "@sveltejs/vite-plugin-svelte": "^1.0.1",
     "@tsconfig/svelte": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^5.32.0",
     "@typescript-eslint/parser": "^5.32.0",
-    "enquirer": "^2.3.6",
     "eslint": "^8.21.0",
     "eslint-config-semistandard": "^17.0.0",
     "eslint-config-standard": "^17.0.0",
@@ -50,6 +49,13 @@
     "svelte-preprocess": "^4.10.7",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4",
-    "vite": "^3.0.0"
+    "vite": "^3.0.8"
+  },
+  "dependencies": {
+    "@npmcli/package-json": "^2.0.0",
+    "chalk": "^4.1.2",
+    "enquirer": "^2.3.6",
+    "shelljs": "^0.8.5",
+    "validate-npm-package-name": "^4.0.0"
   }
 }
