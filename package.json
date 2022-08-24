@@ -1,6 +1,6 @@
 {
   "name": "@tailor-cms/tce-svelte",
-  "description": "Content element starter template",
+  "description": "Content element starter template for Svelte",
   "author": "ExtensionEngine <info@extensionengine.com>",
   "version": "0.0.0",
   "type": "module",
